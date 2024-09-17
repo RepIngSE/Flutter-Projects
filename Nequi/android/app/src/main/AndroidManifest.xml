@@ -2,7 +2,7 @@
     <application
         android:label="Nequi"
         android:name="${applicationName}"
-        android:icon="@mipmap/nequilogo">
+        android:icon="@mipmap/logo">
         <activity
             android:name=".MainActivity"
             android:exported="true"
