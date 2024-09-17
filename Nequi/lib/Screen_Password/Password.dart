@@ -272,79 +272,58 @@ class _Nequi extends State<NequiClave> {
   }
 
   Widget buttonNum(String numTeclado) {
-    return TextButton(
-      child: Text(
-        numTeclado,
-        style: const TextStyle(
-          fontSize: 35,
-          color: Colors.white,
-          fontFamily: 'TempusSansITC',
-        ),
+  return TextButton(
+    child: Text(
+      numTeclado,
+      style: const TextStyle(
+        fontSize: 35,
+        color: Colors.white,
+        fontFamily: 'TempusSansITC',
       ),
-      onPressed: () {
-        setState(() {
-          if (txtClave1.text.isEmpty) {
-            txtClave1.text = numTeclado;
-          } else if (txtClave2.text.isEmpty) {
-            txtClave2.text = numTeclado;
-          } else if (txtClave3.text.isEmpty) {
-            txtClave3.text = numTeclado;
-          } else if (txtClave4.text.isEmpty) {
-            txtClave4.text = numTeclado;
-            if (txtClave1.text == '1' &&
-                txtClave2.text == '2' &&
-                txtClave3.text == '3' &&
-                txtClave4.text == '4') {
-              Future.delayed(const Duration(seconds: 1), () {
-                txtClave1.clear();
-                txtClave2.clear();
-                txtClave3.clear();
-                txtClave4.clear();
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => InitialPage()),
-                );
-              });
-            } else {
-              _actualizarIntentos(intentos - 1);
-              final snackBar = SnackBar(
-                content: Row(
-                  children: [
-                    const Icon(
-                      Icons.report_problem,
-                      color: Color(0xFFFD8C9D),
-                      size: 35,
-                    ),
-                    const SizedBox(width: 15),
-                    Text(
-                      '¡Ups! Esa no es tu clave, tranqui. tienes \n$intentos intentos más',
-                      style: const TextStyle(
-                        fontSize: 15,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ],
-                ),
-                duration: const Duration(seconds: 1),
-                backgroundColor: const Color(0xFFFF3E60),
-                dismissDirection: DismissDirection.up,
-                behavior: SnackBarBehavior.floating,
-                margin: const EdgeInsets.only(left: 10, right: 10),
+    ),
+    onPressed: () {
+      setState(() {
+        if (txtClave1.text.isEmpty) {
+          txtClave1.text = numTeclado;
+        } else if (txtClave2.text.isEmpty) {
+          txtClave2.text = numTeclado;
+        } else if (txtClave3.text.isEmpty) {
+          txtClave3.text = numTeclado;
+        } else if (txtClave4.text.isEmpty) {
+          txtClave4.text = numTeclado;
+          if (txtClave1.text == '1' &&
+              txtClave2.text == '2' &&
+              txtClave3.text == '3' &&
+              txtClave4.text == '4') {
+            Future.delayed(const Duration(seconds: 1), () {
+              txtClave1.clear();
+              txtClave2.clear();
+              txtClave3.clear();
+              txtClave4.clear();
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => InitialPage()),
               );
-              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            });
+          } else {
+            _actualizarIntentos(intentos - 1);
 
-              Future.delayed(const Duration(seconds: 1), () {
-                txtClave1.clear();
-                txtClave2.clear();
-                txtClave3.clear();
-                txtClave4.clear();
-              });
-            }
+            // Llamar a la función showSnackBar aquí
+            showSnackBar(context, intentos);
+
+            Future.delayed(const Duration(seconds: 1), () {
+              txtClave1.clear();
+              txtClave2.clear();
+              txtClave3.clear();
+              txtClave4.clear();
+            });
           }
-        });
-      },
-    );
-  }
+        }
+      });
+    },
+  );
+}
+
 
   void _borrarTexto() {
     if (txtClave4.text.isNotEmpty) {
@@ -358,3 +337,58 @@ class _Nequi extends State<NequiClave> {
     }
   }
 }
+
+void showSnackBar(BuildContext context, int intentos) {
+  final overlay = Overlay.of(context);
+  final overlayEntry = OverlayEntry(
+    builder: (context) => Positioned(
+      top: 50.0, // Ajusta según sea necesario
+      left: 10.0,
+      right: 10.0,
+      child: Material(
+        color: Colors.transparent,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+          decoration: BoxDecoration(
+            color: const Color(0xFFFF3E60),
+            borderRadius: BorderRadius.circular(8),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.1),
+                spreadRadius: 1,
+                blurRadius: 10,
+                offset: const Offset(0, 5),
+              ),
+            ],
+          ),
+          child: Row(
+            children: [
+              const Icon(
+                Icons.report_problem,
+                color: Color(0xFFFD8C9D),
+                size: 35,
+              ),
+              const SizedBox(width: 15),
+              Expanded(
+                child: Text(
+                  '¡Ups! Esa no es tu clave, tranqui. tienes \n$intentos intentos más',
+                  style: const TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    ),
+  );
+
+  overlay?.insert(overlayEntry);
+
+  Future.delayed(const Duration(seconds: 2), () {
+    overlayEntry.remove();
+  });
+}
+
