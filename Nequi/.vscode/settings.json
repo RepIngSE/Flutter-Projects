@@ -1,0 +1,23 @@
+{
+    "workbench.colorCustomizations": {
+        "editor.tokenColorCustomizations": {
+            "textMateRules": [
+                {
+                    "scope": "comment",
+                    "settings": {
+                        "foreground": "#00FF00" // Color para comentarios predeterminados
+                    }
+                },
+                {
+                    "scope": "comment.line.double-slash", 
+                    "settings": {
+                        "foreground": "#FF5733" // Color para comentarios con '////'
+                    }
+                }
+            ]
+        }
+    }
+}
+
+
+
