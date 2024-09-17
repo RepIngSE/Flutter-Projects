@@ -27,7 +27,8 @@ class _InitialPageState extends State<InitialPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-      body: Stack(
+      body: SafeArea(
+        child: Stack(
         children: [
           // Hexágonos rotados (fuera del ScrollView)
           Positioned(
@@ -256,6 +257,7 @@ class _InitialPageState extends State<InitialPage> {
           ),
         ],
       ),
+      )
     );
   }
 }
