@@ -34,7 +34,7 @@ class _NequiOnSetState extends State<NequiOnset> {
                         child: Column(
                           children: <Widget>[
                             _buildTopRow(),
-                            Expanded(flex: 5, child: _buildNequiLogo()),
+                            Expanded(flex: 10, child: _buildNequiLogo()),
                             _buildPhoneInput(constraints.maxWidth),
                             _buildEntrarButton(constraints.maxWidth),
                             Expanded(flex: 2, child: _buildBottomRow()),
