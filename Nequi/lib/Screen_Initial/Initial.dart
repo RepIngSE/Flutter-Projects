@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ionicons/ionicons.dart';
 import 'dart:math';
-import '../Screen_Cash/Cash.dart'; // Necesario para las transformaciones y ángulos
-import 'Favorites.dart'; // Asegúrate de que la ruta sea correcta
-import 'Footer.dart'; // Asegúrate de que la ruta sea correcta
-import 'Hexagon.dart'; // Asegúrate de que la ruta sea correcta
-import 'Suggested.dart'; // Asegúrate de que la ruta sea correcta
+import '../Screen_Cash/Cash.dart'; 
+import 'Favorites.dart'; 
+import 'Footer.dart'; 
+import 'Hexagon.dart'; 
+import 'Suggested.dart'; 
 
 class InitialPage extends StatefulWidget {
   @override
@@ -81,7 +81,7 @@ class _InitialPageState extends State<InitialPage> {
             top: 300,
             left: 0,
             right: 0,
-            bottom: 0, // Añadido para que el ScrollView ocupe el espacio restante
+            bottom: 0, 
             child: SingleChildScrollView(
               child: Column(
                 children: [
@@ -106,7 +106,7 @@ class _InitialPageState extends State<InitialPage> {
             ),
           ),
 
-          // Otros elementos fijos (ej. perfil, botones, etc.)
+        
           Positioned(
             top: 20,
             left: 20,
