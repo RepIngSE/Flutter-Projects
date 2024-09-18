@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import '../Screen_Initial/Initial.dart';
-import 'Balance.dart'; // Asegúrate de que la ruta sea correcta
+import 'Balance.dart';
 
 class Nequituplata extends StatefulWidget {
   @override
@@ -165,8 +165,8 @@ class _NequituplataState extends State<Nequituplata> {
                 decoration: BoxDecoration(
                   color: Color.fromARGB(255, 216, 215, 220),
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(12.0), // Ajusta el radio según lo necesites
-                    topRight: Radius.circular(12.0), // Ajusta el radio según lo necesites
+                    topLeft: Radius.circular(12.0),
+                    topRight: Radius.circular(12.0), 
                   ),
                 ),
                 child: Row(
