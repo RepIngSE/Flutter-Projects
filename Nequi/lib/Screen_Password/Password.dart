@@ -342,7 +342,7 @@ void showSnackBar(BuildContext context, int intentos) {
   final overlay = Overlay.of(context);
   final overlayEntry = OverlayEntry(
     builder: (context) => Positioned(
-      top: 50.0, // Ajusta según sea necesario
+      top: 50.0,
       left: 10.0,
       right: 10.0,
       child: Material(
