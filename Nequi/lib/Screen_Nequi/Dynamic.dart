@@ -87,12 +87,12 @@ class _DynamicKeyWidgetState extends State<DynamicKeyWidget> {
           // Texto con la clave dinámica
           Text(
             dynamicKey,
-            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold,color: Color.fromARGB(255, 255, 255, 255),), // Texto más pequeño
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold,color: Color.fromARGB(255, 255, 255, 255),), 
           ),
           const SizedBox(width: 5),
           // Icono para copiar la clave al portapapeles
           IconButton(
-            icon: const Icon(Icons.copy, size: 22,color: Color.fromARGB(255, 255, 255, 255)), // Icono más pequeño
+            icon: const Icon(Icons.copy, size: 22,color: Color.fromARGB(255, 255, 255, 255)), 
             onPressed: () {
               Clipboard.setData(ClipboardData(text: dynamicKey));
               ScaffoldMessenger.of(context).showSnackBar(
