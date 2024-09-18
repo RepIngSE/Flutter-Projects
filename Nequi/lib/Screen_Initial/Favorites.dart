@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:flutter/widgets.dart';
 
-//Clase para la sección de favoritos 
+ 
 // Clase para la sección de favoritos 
 class FavoriteSection extends StatelessWidget {
   @override
@@ -94,7 +94,7 @@ class FavoriteItem extends StatelessWidget {
               ),
             ],
           ),
-          // Usa el widget icon aquí
+  
           child: Center(
             child: SizedBox(
               width: imageSize,
