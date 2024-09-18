@@ -45,7 +45,6 @@ class _FooterSectionState extends State<FooterSection> {
                   ),
                   child: Row(
                     children: [
-                      // Ítem de pie de página con ícono 'Inicio'
                       FooterItem(
                         icon: Icons.home_outlined,
                         selectedIcon: Icons.home_sharp, 
@@ -78,7 +77,6 @@ class _FooterSectionState extends State<FooterSection> {
                         selectedBackgroundColor: Color(0xFFEBE7F5),
                         defaultBackgroundColor: Colors.white,
                       ),
-                      // Añadir más ítems si es necesario
                     ],
                   ),
                 ),
@@ -156,7 +154,6 @@ class FooterItem extends StatelessWidget {
           children: [
             Icon(
               isSelected ? selectedIcon : icon,
-              // Cambia el tamaño del ícono si es el de inicio
               size: 30,
               color: Color(0xFF1E001F),
             ),
