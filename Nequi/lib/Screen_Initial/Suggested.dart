@@ -10,9 +10,9 @@ class SuggestedSection extends StatelessWidget {
         children: [
           Row(
             children: [
-              // Ícono de corazón movido a la izquierda con Transform
+              
               Transform.translate(
-                // Mueve el contenido 20 píxeles hacia la izquierda
+             
                 offset: Offset(-20, 0), 
                 child: const Row(
                   children: [
@@ -90,7 +90,7 @@ class SuggestedItem extends StatelessWidget {
         
         // Definimos un SizedBox con altura fija para alinear los textos
         SizedBox(
-          height: 40, // Ajusta esta altura según el tamaño esperado del texto
+          height: 40, 
           width: 85,
           child: Text(
             label,
